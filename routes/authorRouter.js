@@ -10,7 +10,7 @@ const authorController = require("../controllers/authorController.js");
 authorRouter.get("/", authorController.getAllAuthors);
 
 // handle GET request for specific author ID
-authorRouter.get("/:id", authorController.getAuthorByID);
+authorRouter.get("/:authorID", authorController.getAuthorByID);
 
 // export the router
 module.exports = authorRouter;
