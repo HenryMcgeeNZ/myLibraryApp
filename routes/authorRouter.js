@@ -7,16 +7,20 @@ const authorRouter = express.Router();
 const authorController = require("../controllers/authorController.js");
 
 // handle the GET request to get all authors
-authorRouter.get("/", authorController.getAllAuthors);
+authorRouter.get("/", (req, res) => authorController.getAllAuthors(req, res));
 
 // handle GET request for specific author ID
-authorRouter.get("/:authorID", authorController.getAuthorByID);
+authorRouter.get("/:authorID", (req, res) =>
+  authorController.getAuthorByID(req, res)
+);
 
 // handle POST request to add one author
-authorRouter.post("/", authorController.addAuthor(req, res));
+authorRouter.post("/", (req, res) => authorController.addAuthor(req, res));
 
 // handle POST request to update one author
-authorRouter.post("/update", authorController.updateAuthor(req, res));
+authorRouter.post("/update", (req, res) =>
+  authorController.updateAuthor(req, res)
+);
 
 // export the router
 module.exports = authorRouter;
